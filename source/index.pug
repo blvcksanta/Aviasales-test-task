@@ -4,6 +4,7 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="./css/style.min.css")
     title Aviasales
   body
   header.header
@@ -14,31 +15,31 @@ html(lang="ru")
       label.filters--label
         input.visually-hidden(type="checkbox", name="all")
         span.filters--checkbox
-          svg.filter--svg
+          svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text Все
       label.filters--label
         input.visually-hidden(type="checkbox", name="non-stop")
         span.filters--checkbox
-          svg.filter--svg
+          svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text Без пересадок
       label.filters--label
         input.visually-hidden(type="checkbox", name="1 transfer")
         span.filters--checkbox
-          svg.filter--svg
+          svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 1 пересадка
       label.filters--label
         input.visually-hidden(type="checkbox", name="2 transfers")
         span.filters--checkbox
-          svg.filter--svg
+          svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 2 пересадки
       label.filters--label
         input.visually-hidden(type="checkbox", name="3 transfers")
         span.filters--checkbox
-          svg.filter--svg
+          svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 3 пересадки
     form.form.sort(action="#", method="post")
