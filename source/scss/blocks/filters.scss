@@ -1,0 +1,47 @@
+.filters {
+  padding: 20px 0;
+  grid-row: 1/3;
+}
+
+.filters--title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.filters--label {
+  padding: 10px 20px;
+  display: flex;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $cyan;
+  }
+}
+
+.filters--checkbox {
+  width: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $blue;
+  border-radius: 2px;
+}
+
+.filters--svg {
+  width: 12px;
+  height: 8px;
+  fill: $blue;
+}
+
+.filters--text {
+  margin-left: 10px;
+}
+
+input[type='checkbox']:not(:checked) + .filters--checkbox .filters--svg {
+  display: none;
+}
