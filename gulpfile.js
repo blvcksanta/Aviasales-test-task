@@ -22,6 +22,21 @@ import {img, svg} from './gulp/tasks/img.js';
 import {svgSprite} from './gulp/tasks/svgSprite.js';
 import {otfToTtf, ttfToWoff, copyWoff} from './gulp/tasks/fonts.js';
 
+
+import jsonServer from 'json-server';
+
+function test () {
+  const server = jsonServer.create()
+  const router = jsonServer.router('db.json')
+  const middlewares = jsonServer.defaults()
+
+  server.use(middlewares)
+  server.use(router)
+  server.listen(3000, () => {
+    console.log('JSON Server is running')
+  })
+}
+
 //Наблюдатель
 function watcher () {
   gulp.watch(path.watch.pug, html);
@@ -38,8 +53,19 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, copyWoff);
 const dev = gulp.series(
   reset,
   fonts,
-  gulp.parallel(html, scss, js, svg, img, svgSprite),
-  gulp.parallel(watcher, server),
+  gulp.parallel(
+    html,
+    scss,
+    js,
+    svg,
+    img,
+    svgSprite
+  ),
+  gulp.parallel(
+    watcher,
+    server,
+    test
+  ),
 );
 
 //Выполнения сценария по умолчанию

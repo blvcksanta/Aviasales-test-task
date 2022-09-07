@@ -28,6 +28,9 @@
     "gulp-terser": "latest",
     "gulp-ttf2woff2": "latest",
     "postcss-csso": "latest",
-    "sass": "latest"
+    "sass": "latest",
+    "json-server": "^0.17.0"
+  },
+  "dependencies": {
   }
 }
