@@ -1,12 +1,63 @@
 doctype html
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Aviasales
   body
-  header
-  main
+  header.header
+    img(src="./img/svg/icon/logo.svg", alt="Логотип" width='60' height='60')
+  main.main
+    form.form.filters(action="#", method="post")
+      p.filters--title Количество пересадок
+      label.filters--label
+        input.visually-hidden(type="checkbox", name="all")
+        span.filters--checkbox
+          svg.filter--svg
+            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
+        span.filters--text Все
+      label.filters--label
+        input.visually-hidden(type="checkbox", name="non-stop")
+        span.filters--checkbox
+          svg.filter--svg
+            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
+        span.filters--text Без пересадок
+      label.filters--label
+        input.visually-hidden(type="checkbox", name="1 transfer")
+        span.filters--checkbox
+          svg.filter--svg
+            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
+        span.filters--text 1 пересадка
+      label.filters--label
+        input.visually-hidden(type="checkbox", name="2 transfers")
+        span.filters--checkbox
+          svg.filter--svg
+            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
+        span.filters--text 2 пересадки
+      label.filters--label
+        input.visually-hidden(type="checkbox", name="3 transfers")
+        span.filters--checkbox
+          svg.filter--svg
+            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
+        span.filters--text 3 пересадки
+    form.form.sort(action="#", method="post")
+      button.sort--button(type='button' name='cheapest') Самый дешевый
+      button.sort--button(type='button' name='fastest') Самый быстрый
+      button.sort--button(type='button' name='optimal') Оптимальный
   footer
   script(src='./js/main.js' type='module')
+  template
+    .ticket
+      p.ticket--price 123
+      img.ticket--logo(src='#' alt='Логотип компании')
+      ul.ticket--list
+        li.ticket--item
+          p.ticket--title 123
+          p.ticket--text 123
+        li.ticket--item
+          p.ticket--title 123
+          p.ticket--text 123
+        li.ticket--item
+          p.ticket--title 123
+          p.ticket--text 123
