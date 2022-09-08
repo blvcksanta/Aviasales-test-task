@@ -43,22 +43,32 @@ html(lang="ru")
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 3 пересадки
     form.form.sort(action="#", method="post")
-      button.sort--button(type='button' name='cheapest') Самый дешевый
+      button.sort--button.sort--button__js-click(type='button' name='cheapest') Самый дешевый
       button.sort--button(type='button' name='fastest') Самый быстрый
       button.sort--button(type='button' name='optimal') Оптимальный
   footer
   script(src='./js/main.js' type='module')
   template
     .ticket
-      p.ticket--price 123
+      p.ticket--price 13 400 P
       img.ticket--logo(src='#' alt='Логотип компании')
       ul.ticket--list
         li.ticket--item
-          p.ticket--title 123
-          p.ticket--text 123
+          p.ticket--title MOW - HKT
+          p.ticket--text 10:45 - 08:00
         li.ticket--item
-          p.ticket--title 123
-          p.ticket--text 123
+          p.ticket--title В пути
+          p.ticket--text 21<span class='ticket--text__lower'>ч</span> 15<span class='ticket--text__lower'>м</span>
         li.ticket--item
-          p.ticket--title 123
-          p.ticket--text 123
+          p.ticket--title 2 пересадки
+          p.ticket--text hkg, jnb
+      ul.ticket--list
+        li.ticket--item
+          p.ticket--title mow - hkt
+          p.ticket--text 11:20 - 00:50
+        li.ticket--item
+          p.ticket--title В пути
+          p.ticket--text 13<span class='ticket--text__lower'>ч</span> 30<span class='ticket--text__lower'>м</span>
+        li.ticket--item
+          p.ticket--title 1 пересадка
+          p.ticket--text hkg
