@@ -15,12 +15,12 @@
   line-height: 24px;
   font-weight: 600;
   color: $blue;
-  margin: 0;
+  margin: auto 0;
 }
 
 .ticket--logo {
   display: block;
-  margin-left: auto;
+  margin: auto 0 auto auto;
 }
 
 .ticket--list {
@@ -35,17 +35,23 @@
 }
 
 .ticket--title {
-  margin: 0;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
   color: $dark-grey;
 }
 
 .ticket--text {
-  margin: 0;
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
   color: $light-black;
+
+  &__lower {
+    text-transform: lowercase;
+  }
 }
