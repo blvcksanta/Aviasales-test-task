@@ -20,6 +20,10 @@
   &:hover {
     background-color: $cyan;
   }
+
+  &:active .filters--checkbox {
+    border-color: $blue-5;
+  }
 }
 
 .filters--checkbox {
@@ -42,6 +46,12 @@
   margin-left: 10px;
 }
 
-input[type='checkbox']:not(:checked) + .filters--checkbox .filters--svg {
+input[type='checkbox']:not(:checked) + .filters--label .filters--svg {
   display: none;
+}
+
+input[type='checkbox']:focus-visible + .filters--label {
+  outline: 1px solid $blue;
+  outline-offset: -1px;
+  background-color: $cyan;
 }
