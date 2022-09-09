@@ -46,52 +46,29 @@ html(lang="ru")
       button.sort--button.sort--button__js-click(type='button' name='cheapest') Самый дешевый
       button.sort--button(type='button' name='fastest') Самый быстрый
       button.sort--button(type='button' name='optimal') Оптимальный
+  footer
+  script(src='./js/main.js' type='module')
+  template#ticket
     .ticket
       p.ticket--price 13 400 P
       img.ticket--logo(src='#' srcset='#' alt='Логотип компании' height='36')
-      ul.ticket--list
+      ul.ticket--list#departure
         li.ticket--item
-          p.ticket--title MOW - HKT
+          p.ticket--title#direction MOW - HKT
           p.ticket--text 10:45 - 08:00
         li.ticket--item
           p.ticket--title В пути
-          p.ticket--text.ticket--text__lower 21ч 15м
+          p.ticket--text.ticket--text__lower#travel-time-first 21ч 15м
         li.ticket--item
-          p.ticket--title 2 пересадки
-          p.ticket--text hkg, jnb
-      ul.ticket--list
+          p.ticket--title#stops 2 пересадки
+          p.ticket--text#stop-place hkg, jnb
+      ul.ticket--list#come-back
         li.ticket--item
-          p.ticket--title mow - hkt
+          p.ticket--title#direction mow - hkt
           p.ticket--text 11:20 - 00:50
         li.ticket--item
           p.ticket--title В пути
-          p.ticket--text.ticket--text__lower 13ч 30м
+          p.ticket--text.ticket--text__lower#travel-time-second 13ч 30м
         li.ticket--item
-          p.ticket--title 1 пересадка
-          p.ticket--text hkg
-  footer
-  script(src='./js/main.js' type='module')
-  template
-    .ticket
-      p.ticket--price 13 400 P
-      img.ticket--logo(src='#' alt='Логотип компании')
-      ul.ticket--list
-        li.ticket--item
-          p.ticket--title MOW - HKT
-          p.ticket--text 10:45 - 08:00
-        li.ticket--item
-          p.ticket--title В пути
-          p.ticket--text 21<span class='ticket--text__lower'>ч</span> 15<span class='ticket--text__lower'>м</span>
-        li.ticket--item
-          p.ticket--title 2 пересадки
-          p.ticket--text hkg, jnb
-      ul.ticket--list
-        li.ticket--item
-          p.ticket--title mow - hkt
-          p.ticket--text 11:20 - 00:50
-        li.ticket--item
-          p.ticket--title В пути
-          p.ticket--text 13<span class='ticket--text__lower'>ч</span> 30<span class='ticket--text__lower'>м</span>
-        li.ticket--item
-          p.ticket--title 1 пересадка
-          p.ticket--text hkg
+          p.ticket--title#stops 1 пересадка
+          p.ticket--text#stop-place hkg
