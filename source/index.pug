@@ -12,32 +12,32 @@ html(lang="ru")
   main.main
     form.form.filters(action="#", method="post")
       p.filters--title Количество пересадок
-      label.filters--label
-        input.visually-hidden(type="checkbox", name="all")
+      input.visually-hidden(type="checkbox", name="all" id="all")
+      label.filters--label(for="all")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text Все
-      label.filters--label
-        input.visually-hidden(type="checkbox", name="non-stop")
+      input.visually-hidden(type="checkbox", name="non-stop" id="non-stop")
+      label.filters--label(for="non-stop")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text Без пересадок
-      label.filters--label
-        input.visually-hidden(type="checkbox", name="1 transfer")
+      input.visually-hidden(type="checkbox", name="1 transfer" id="1_transfer")
+      label.filters--label(for="1_transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 1 пересадка
-      label.filters--label
-        input.visually-hidden(type="checkbox", name="2 transfers")
+      input.visually-hidden(type="checkbox", name="2 transfers" id="2_transfer")
+      label.filters--label(for="2_transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 2 пересадки
-      label.filters--label
-        input.visually-hidden(type="checkbox", name="3 transfers")
+      input.visually-hidden(type="checkbox", name="3 transfers" id="3_transfer")
+      label.filters--label(for="3_transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
