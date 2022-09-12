@@ -1,3 +1,4 @@
+const main = document.querySelector('.main');
 const ticket = document.querySelector('#ticket').content.querySelector('.ticket');
 const logoCompany = ticket.querySelector('.ticket--logo');
 const price = ticket.querySelector('.ticket--price');
@@ -79,12 +80,9 @@ const getNumberStops = (value) => {
   } else if (value.segments[0].stops.length == 1) {
       stopsPlaceThere.textContent = value.segments[0].stops.join(' ');
       numberStopsThere.textContent = '1 пересадка';
-  } else if (value.segments[0].stops.length == 2) {
+  } else if (value.segments[0].stops.length >= 2) {
       stopsPlaceThere.textContent = value.segments[0].stops.join(', ');
-      numberStopsThere.textContent = '2 пересадки';
-  } else if (value.segments[0].stops.length == 3) {
-      stopsPlaceThere.textContent = value.segments[0].stops.join(', ');
-      numberStopsThere.textContent = '3 пересадки';
+      numberStopsThere.textContent = `${value.segments[0].stops.length} пересадки`;
   }
 
   if (value.segments[1].stops.length == 0) {
@@ -93,13 +91,27 @@ const getNumberStops = (value) => {
   } else if (value.segments[1].stops.length == 1) {
       stopsPlaceBack.textContent = value.segments[1].stops.join(' ');
       numberStopsBack.textContent = '1 пересадка';
-  } else if (value.segments[1].stops.length == 2) {
+  } else if (value.segments[1].stops.length >= 2) {
       stopsPlaceBack.textContent = value.segments[1].stops.join(', ');
-      numberStopsBack.textContent = '2 пересадки';
-  } else if (value.segments[1].stops.length == 3) {
-      stopsPlaceBack.textContent = value.segments[1].stops.join(', ');
-      numberStopsBack.textContent = '3 пересадки';
+      numberStopsBack.textContent = `${value.segments[1].stops.length} пересадки`;
   }
 }
 
-export {ticket, logoCompany, getDirection, getTicketPrice, getTravelTime, getNumberStops};
+const getTravelInformation = (value) => {
+  logoCompany.setAttribute('srcset', `http://pics.avs.io/99/36/${value.carrier}.png 1x, http://pics.avs.io/99/36/${value.carrier}@2x.png 2x`);
+  logoCompany.setAttribute('src', `http://pics.avs.io/99/36/${value.carrier}.png`);
+  getTravelTime(value);
+  getTicketPrice(value);
+  getNumberStops(value);
+  getDirection(value);
+};
+
+const getData = (data) => {
+  return data.forEach((currentValue) => {
+    getTravelInformation(currentValue);
+    const ticketCopy = ticket.cloneNode(true);
+    main.appendChild(ticketCopy);
+  })
+}
+
+export {getData};
