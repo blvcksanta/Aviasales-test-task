@@ -46,11 +46,11 @@
   margin-left: 10px;
 }
 
-input[type='checkbox']:not(:checked) + .filters--label .filters--svg {
+input[type='radio']:not(:checked) + .filters--label .filters--svg {
   display: none;
 }
 
-input[type='checkbox']:focus-visible + .filters--label {
+input[type='radio']:focus-visible + .filters--label {
   outline: 1px solid $blue;
   outline-offset: -1px;
   background-color: $cyan;
