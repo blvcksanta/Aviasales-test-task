@@ -12,40 +12,48 @@ html(lang="ru")
   main.main
     form.form.filters(action="#", method="post")
       p.filters--title Количество пересадок
-      input.visually-hidden(type="radio", name="all" value='all' id="all" checked)
+      input.visually-hidden(type="radio", name="filter" value='all' id="all" checked)
       label.filters--label(for="all")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text Все
-      input.visually-hidden(type="radio", name="all" value='0 transfer' id="0 transfer")
+      input.visually-hidden(type="radio", name="filter" value='0 transfer' id="0 transfer")
       label.filters--label(for="0 transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text Без пересадок
-      input.visually-hidden(type="radio", name="all" value='1 transfer' id="1_transfer")
+      input.visually-hidden(type="radio", name="filter" value='1 transfer' id="1_transfer")
       label.filters--label(for="1_transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 1 пересадка
-      input.visually-hidden(type="radio", name="all" value='2 transfer' id="2_transfer")
+      input.visually-hidden(type="radio", name="filter" value='2 transfer' id="2_transfer")
       label.filters--label(for="2_transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 2 пересадки
-      input.visually-hidden(type="radio", name="all" value='3 transfer' id="3_transfer")
+      input.visually-hidden(type="radio", name="filter" value='3 transfer' id="3_transfer")
       label.filters--label(for="3_transfer")
         span.filters--checkbox
           svg.filters--svg
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 3 пересадки
     form.form.sort(action="#", method="post")
-      button.sort--button.sort--button__js-click(type='button' name='cheapest') Самый дешевый
-      button.sort--button(type='button' name='fastest') Самый быстрый
-      button.sort--button(type='button' name='optimal') Оптимальный
+      //- input.visually-hidden(type="checkbox", name="sort" value='cheapest' id="cheapest")
+      input.visually-hidden(type="checkbox", name="cheapest" id="cheapest")
+      label.sort--button.sort--button__js-cheapest(for="cheapest") Самый дешевый
+      input.visually-hidden(type="checkbox", name="sort" value='fastest' id="fastest")
+      label.sort--button(for="fastest") Самый быстрый
+      input.visually-hidden(type="checkbox", name="sort" value='optimal' id="optimal")
+      label.sort--button(for="optimal") Оптимальный
+
+      //- button.sort--button.sort--button__js-click(type='button' name='cheapest') Самый дешевый
+      //- button.sort--button(type='button' name='fastest') Самый быстрый
+      //- button.sort--button(type='button' name='optimal') Оптимальный
   footer
   script(src='./js/main.js' type='module')
   template#ticket
