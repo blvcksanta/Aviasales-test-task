@@ -26,12 +26,21 @@ const getTicketPrice = (value) => {
   let arrayThousandths = [];
   let arrayHundredths = []
 
-  for(let i = 0; i < arrayNumbers.length; i++) {
-    if(i < 2) {
-      arrayThousandths.push(arrayNumbers[i]);
-    }
-    if(i >= 2) {
-      arrayHundredths.push(arrayNumbers[i]);
+  for (let i = 0; i < arrayNumbers.length; i++) {
+    if (arrayNumbers.length == 5) {
+      if(i < 2) {
+        arrayThousandths.push(arrayNumbers[i]);
+      }
+      if(i >= 2) {
+        arrayHundredths.push(arrayNumbers[i]);
+      }
+    } else if (arrayNumbers.length == 4) {
+      if(i < 1) {
+        arrayThousandths.push(arrayNumbers[i]);
+      }
+      if(i >= 1) {
+        arrayHundredths.push(arrayNumbers[i]);
+      }
     }
   }
 
