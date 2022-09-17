@@ -6,15 +6,17 @@
 }
 
 .sort--button {
-  font-family: inherit;
+  // font-family: inherit;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  padding: 15px 0;
+  text-align: center;
+  padding: 14px 0;
   width: 168px;
-  color: $light-black;
+  // color: $light-black;
   background-color: inherit;
-  border: none;
+  // border: none;
+  user-select: none;
   cursor: pointer;
 
   &:first-of-type {
