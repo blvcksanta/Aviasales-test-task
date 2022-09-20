@@ -43,17 +43,12 @@ html(lang="ru")
             use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
         span.filters--text 3 пересадки
     form.form.sort(action="#", method="post")
-      //- input.visually-hidden(type="checkbox", name="sort" value='cheapest' id="cheapest")
       input.visually-hidden(type="checkbox", name="cheapest" id="cheapest")
       label.sort--button.sort--button__js-cheapest(for="cheapest") Самый дешевый
       input.visually-hidden(type="checkbox", name="sort" value='fastest' id="fastest")
       label.sort--button(for="fastest") Самый быстрый
       input.visually-hidden(type="checkbox", name="sort" value='optimal' id="optimal")
       label.sort--button(for="optimal") Оптимальный
-
-      //- button.sort--button.sort--button__js-click(type='button' name='cheapest') Самый дешевый
-      //- button.sort--button(type='button' name='fastest') Самый быстрый
-      //- button.sort--button(type='button' name='optimal') Оптимальный
   footer
   script(src='./js/main.js' type='module')
   template#ticket
