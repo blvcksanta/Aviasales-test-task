@@ -5,17 +5,30 @@
   justify-content: space-between;
 }
 
+input[type='checkbox']:focus-visible + .sort--button {
+  outline: 1px solid $blue;
+  outline-offset: -1px;
+
+  color: $light-black;
+  background-color: $cyan;
+
+  &:nth-of-type(1) + .sort--button {
+    border-left-color: $cyan;
+  }
+
+  &:nth-of-type(2) + .sort--button {
+    border-left-color: $cyan;
+  }
+}
+
 .sort--button {
-  // font-family: inherit;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-align: center;
   padding: 14px 0;
   width: 168px;
-  // color: $light-black;
   background-color: inherit;
-  // border: none;
   user-select: none;
   cursor: pointer;
 
@@ -42,22 +55,6 @@
     background-color: $cyan;
     border-color: $cyan;
     outline: none;
-
-    &:nth-of-type(1) + .sort--button {
-      border-left-color: $cyan;
-    }
-
-    &:nth-of-type(2) + .sort--button {
-      border-left-color: $cyan;
-    }
-  }
-
-  &:focus-visible {
-    outline: 1px solid $blue;
-    outline-offset: -1px;
-
-    color: $light-black;
-    background-color: $cyan;
 
     &:nth-of-type(1) + .sort--button {
       border-left-color: $cyan;
