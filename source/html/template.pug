@@ -1,0 +1,24 @@
+template#ticket
+  .ticket
+    p.ticket--price 13 400 P
+    img.ticket--logo(src='#' srcset='#' alt='Логотип компании' height='36')
+    ul.ticket--list#departure
+      li.ticket--item
+        p.ticket--title#direction MOW - HKT
+        p.ticket--text 10:45 - 08:00
+      li.ticket--item
+        p.ticket--title В пути
+        p.ticket--text.ticket--text__lower#travel-time-first 21ч 15м
+      li.ticket--item
+        p.ticket--title#stops 2 пересадки
+        p.ticket--text#stop-place hkg, jnb
+    ul.ticket--list#come-back
+      li.ticket--item
+        p.ticket--title#direction mow - hkt
+        p.ticket--text 11:20 - 00:50
+      li.ticket--item
+        p.ticket--title В пути
+        p.ticket--text.ticket--text__lower#travel-time-second 13ч 30м
+      li.ticket--item
+        p.ticket--title#stops 1 пересадка
+        p.ticket--text#stop-place hkg
