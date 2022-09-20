@@ -1,3 +1,5 @@
+include ./html/const.pug
+
 doctype html
 html(lang="ru")
   head
@@ -12,43 +14,20 @@ html(lang="ru")
   main.main
     form.form.filters(action="#", method="post")
       p.filters--title Количество пересадок
-      input.visually-hidden(type="radio", name="filter" value='all' id="all" checked)
-      label.filters--label(for="all")
-        span.filters--checkbox
-          svg.filters--svg
-            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
-        span.filters--text Все
-      input.visually-hidden(type="radio", name="filter" value='0 transfer' id="0 transfer")
-      label.filters--label(for="0 transfer")
-        span.filters--checkbox
-          svg.filters--svg
-            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
-        span.filters--text Без пересадок
-      input.visually-hidden(type="radio", name="filter" value='1 transfer' id="1_transfer")
-      label.filters--label(for="1_transfer")
-        span.filters--checkbox
-          svg.filters--svg
-            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
-        span.filters--text 1 пересадка
-      input.visually-hidden(type="radio", name="filter" value='2 transfer' id="2_transfer")
-      label.filters--label(for="2_transfer")
-        span.filters--checkbox
-          svg.filters--svg
-            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
-        span.filters--text 2 пересадки
-      input.visually-hidden(type="radio", name="filter" value='3 transfer' id="3_transfer")
-      label.filters--label(for="3_transfer")
-        span.filters--checkbox
-          svg.filters--svg
-            use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
-        span.filters--text 3 пересадки
+      each currentValue in filters
+        if (currentValue.id == 'all')
+          input.visually-hidden(type="radio", name="filter" value=currentValue.id id=currentValue.id checked)
+        else
+          input.visually-hidden(type="radio", name="filter" value=currentValue.id id=currentValue.id)
+        label.filters--label(for=currentValue.id)
+          span.filters--checkbox
+            svg.filters--svg
+              use(xlink:href='./img/svg/sprite/sprite.svg#check-mark')
+          span.filters--text= currentValue.text
     form.form.sort(action="#", method="post")
-      input.visually-hidden(type="checkbox", name="cheapest" id="cheapest")
-      label.sort--button.sort--button__js-cheapest(for="cheapest") Самый дешевый
-      input.visually-hidden(type="checkbox", name="sort" value='fastest' id="fastest")
-      label.sort--button(for="fastest") Самый быстрый
-      input.visually-hidden(type="checkbox", name="sort" value='optimal' id="optimal")
-      label.sort--button(for="optimal") Оптимальный
+      each currentValue in sorts
+        input.visually-hidden(type="checkbox", name=currentValue.id id=currentValue.id)
+        label.sort--button(class=currentValue.class for=currentValue.id)= currentValue.text
   footer
   script(src='./js/main.js' type='module')
   template#ticket
