@@ -1,8 +1,6 @@
 import {getData} from './modules/data.js';
 import {getFilteredData, deleteUnfilteredTickets} from './modules/filters.js';
 
-// import './modules/sort.js';
-
 const filter = document.querySelector('.filters')
 const filterCheckBoxs = filter.querySelectorAll('input[type=radio]');
 
@@ -15,35 +13,38 @@ fetch('http://localhost:3000/tickets')
     sortCheckBoxs.forEach((sortCheckBox) => {
       sortCheckBox.addEventListener('change', (evt) => {
         const cheapestButton = document.querySelector('.sort--button__js-cheapest');
+        cheapestButton.classList.toggle('sort--button__js-click');
+        const sortData = data.slice().sort((a, b) => a.price - b.price);
         if(evt.target.name === 'cheapest' && evt.target.checked) {
-          cheapestButton.classList.add('sort--button__js-click');
-          const sortData = data.slice().sort((a, b) => a.price - b.price);
           deleteUnfilteredTickets();
-          getData(sortData);
           filterCheckBoxs.forEach((filterCheckBox) => {
-            filterCheckBox.addEventListener('change', (evt) => {
+            if(filterCheckBox.checked) {
+              getFilteredData(sortData, filterCheckBox.value);
+            }
+            filterCheckBox.addEventListener('change', () => {
               deleteUnfilteredTickets();
-              getFilteredData(sortData, evt);
+              getFilteredData(sortData, filterCheckBox.value);
             })
           })
         } else {
-          cheapestButton.classList.remove('sort--button__js-click');
+          deleteUnfilteredTickets();
           filterCheckBoxs.forEach((filterCheckBox) => {
-            filterCheckBox.addEventListener('change', (evt) => {
+            if(filterCheckBox.checked) {
+              getFilteredData(data, filterCheckBox.value);
+            }
+            filterCheckBox.addEventListener('change', () => {
               deleteUnfilteredTickets();
-              getFilteredData(data, evt);
+              getFilteredData(data, filterCheckBox.value);
             })
           })
-          deleteUnfilteredTickets();
-          getData(data);
         }
       })
     })
 
     filterCheckBoxs.forEach((filterCheckBox) => {
-      filterCheckBox.addEventListener('change', (evt) => {
+      filterCheckBox.addEventListener('change', () => {
         deleteUnfilteredTickets();
-        getFilteredData(data, evt);
+        getFilteredData(data, filterCheckBox.value);
       })
     })
 
