@@ -1,7 +1,7 @@
 const main = document.querySelector('.main');
 const ticket = document.querySelector('#ticket').content.querySelector('.ticket');
 const logoCompany = ticket.querySelector('.ticket--logo');
-const price = ticket.querySelector('.ticket--price');
+const ticketPrice = ticket.querySelector('.ticket--price');
 const departure = ticket.querySelector('#departure');
 const comeBack = ticket.querySelector('#come-back');
 const travelTimeThere = departure.querySelector('#travel-time-first');
@@ -14,14 +14,13 @@ const directionThere = departure.querySelector('#direction');
 const directionBack = comeBack.querySelector('#direction');
 
 
-const getDirection = (value) => {
-  directionThere.textContent = `${value.segments[0].origin} - ${value.segments[0].destination}`
-  directionBack.textContent = `${value.segments[1].origin} - ${value.segments[1].destination}`
+const getDirection = ({segments: [departure, comeBack]}) => {
+  directionThere.textContent = `${departure.origin} - ${departure.destination}`
+  directionBack.textContent = `${comeBack.origin} - ${comeBack.destination}`
 }
 
-const getTicketPrice = (value) => {
-  let ticketPrice = `${value.price}`;
-  let arrayNumbers = ticketPrice.split('');
+const getTicketPrice = ({price}) => {
+  let arrayNumbers = String(price).split('');
 
   let arrayThousandths = [];
   let arrayHundredths = []
@@ -44,17 +43,17 @@ const getTicketPrice = (value) => {
     }
   }
 
-  price.textContent = `${arrayThousandths.join('')} ${arrayHundredths.join('')} ₽`;
+  ticketPrice.textContent = `${arrayThousandths.join('')} ${arrayHundredths.join('')} ₽`;
 }
 
 
-const getTravelTime = (value) => {
+const getTravelTime = ({segments}) => {
   let hours = [];
   let minutes = [];
 
-  for (let i = 0; i < value.segments.length; i++) {
-    hours.push(Math.floor(value.segments[i].duration / 60));
-    minutes.push(value.segments[i].duration - (hours[i] * 60));
+  for (let i = 0; i < segments.length; i++) {
+    hours.push(Math.floor(segments[i].duration / 60));
+    minutes.push(segments[i].duration - (hours[i] * 60));
   }
 
   hours.forEach((currentValue) => hours.push(currentValue + 'ч'));
@@ -82,27 +81,27 @@ const getTravelTime = (value) => {
   travelTimeBack.textContent = timeOptionSecond.join(' ');
 }
 
-const getNumberStops = (value) => {
-  if (value.segments[0].stops.length == 0) {
-    stopsPlaceThere.textContent = value.segments[0].stops.join(' ');
+const getNumberStops = ({segments: [departure, comeBack]}) => {
+  if (departure.stops.length == 0) {
+    stopsPlaceThere.textContent = departure.stops.join(' ');
     numberStopsThere.textContent = 'Без пересадок';
-  } else if (value.segments[0].stops.length == 1) {
-      stopsPlaceThere.textContent = value.segments[0].stops.join(' ');
+  } else if (departure.stops.length == 1) {
+      stopsPlaceThere.textContent = departure.stops.join(' ');
       numberStopsThere.textContent = '1 пересадка';
-  } else if (value.segments[0].stops.length >= 2) {
-      stopsPlaceThere.textContent = value.segments[0].stops.join(', ');
-      numberStopsThere.textContent = `${value.segments[0].stops.length} пересадки`;
+  } else if (departure.stops.length >= 2) {
+      stopsPlaceThere.textContent = departure.stops.join(', ');
+      numberStopsThere.textContent = `${departure.stops.length} пересадки`;
   }
 
-  if (value.segments[1].stops.length == 0) {
-    stopsPlaceBack.textContent = value.segments[1].stops.join(' ');
+  if (comeBack.stops.length == 0) {
+    stopsPlaceBack.textContent = comeBack.stops.join(' ');
     numberStopsBack.textContent = 'Без пересадок';
-  } else if (value.segments[1].stops.length == 1) {
-      stopsPlaceBack.textContent = value.segments[1].stops.join(' ');
+  } else if (comeBack.stops.length == 1) {
+      stopsPlaceBack.textContent = comeBack.stops.join(' ');
       numberStopsBack.textContent = '1 пересадка';
-  } else if (value.segments[1].stops.length >= 2) {
-      stopsPlaceBack.textContent = value.segments[1].stops.join(', ');
-      numberStopsBack.textContent = `${value.segments[1].stops.length} пересадки`;
+  } else if (comeBack.stops.length >= 2) {
+      stopsPlaceBack.textContent = comeBack.stops.join(', ');
+      numberStopsBack.textContent = `${comeBack.stops.length} пересадки`;
   }
 }
 

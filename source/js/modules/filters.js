@@ -8,13 +8,9 @@ const deleteUnfilteredTickets = () => {
 }
 
 const doFiltering = (data, value) => {
-  return data.filter((currentValue) => {
-  const numberStopsDeparture = currentValue.segments[0].stops.length;
-  const numberStopsComeBack = currentValue.segments[1].stops.length;
-  if (numberStopsDeparture == parseInt(value.match(/\d+/)) && numberStopsComeBack == parseInt(value.match(/\d+/))) {
-    return true;
-  }
-  });
+  return data.filter(({segments: [departure, comeBack]}) =>
+    departure.stops.length == parseInt(value.match(/\d+/)) && comeBack.stops.length == parseInt(value.match(/\d+/))
+  );
 }
 
 const getFilteredData = (data, value) => {
